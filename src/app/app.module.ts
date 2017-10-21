@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
+
+import { AuthenticationService } from './authentication.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +33,10 @@ import { DashboardComponent } from './dashboard.component';
         redirectTo: '/dashboard',
         pathMatch: 'full'
       },
-    ])
+    ]),
+    HttpModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

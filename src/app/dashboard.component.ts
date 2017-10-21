@@ -8,7 +8,6 @@ import { User } from './login.component';
 
 export class DashboardComponent {
     user: User = {
-        id: 1,
         username: 'foo',
         password: ''
       };
