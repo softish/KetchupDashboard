@@ -1,11 +1,13 @@
 <div>
-  <h1>
-    {{title}}
-  </h1>
-  <nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/login">Login</a>
-  </nav>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">{{title}}</a> 
+        </div>
+        <p class="navbar-text"><a routerLink="/dashboard" class="navbar-link">Dashboard</a></p>
+        <p class="navbar-text"><a routerLink="/login" class="navbar-link">Login</a></p>
+      </div>
+    </nav>
   <router-outlet></router-outlet>
 </div>
 
