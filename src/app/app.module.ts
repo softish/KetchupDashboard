@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
-
-import { AuthenticationService } from './authentication.service';
+import { SessionBarChartComponent } from './session-bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SessionBarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,10 @@ import { AuthenticationService } from './authentication.service';
         pathMatch: 'full'
       },
     ]),
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
-  providers: [AuthenticationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

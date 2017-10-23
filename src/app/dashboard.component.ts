@@ -3,7 +3,7 @@ import { User } from './login.component';
 
 @Component({
   selector: 'app-dashboard',
-  template: '<h3>{{user.username}} dashboard</h3>'
+  templateUrl: './dashboard.component.html'
 })
 
 export class DashboardComponent {
