@@ -14,7 +14,7 @@ export class SessionBarChartComponent {
  public barChartLegend:boolean = true;
 
  public barChartData:any[] = [
-   {data: [120, 60, 20, 240, 360, 80, 40], label: 'Sessions'}
+   {data: [120, 60, 20, 240, 360, 80, 40], label: 'Total session duration'}
  ];
 
  public barChartColors:Array<any> = [
@@ -26,5 +26,12 @@ export class SessionBarChartComponent {
 
  public chartClicked(e:any):void {
    console.log(e);
+ }
+
+ public updateFirst(value: number) {
+  let data = [value, 60, 20, 240, 360, 80, 40];
+  let clone = JSON.parse(JSON.stringify(this.barChartData));
+  clone[0].data = data;
+  this.barChartData = clone;
  }
 }

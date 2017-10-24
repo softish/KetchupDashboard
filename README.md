@@ -13,5 +13,5 @@ Further details on [Angular CLI](/GETTING_STARTED.md).
 This web application requires an running instance of the [KetchupAPI](https://github.com/softish/KetchupAPI).
 
 ## Dependencies
-* Node.js
-* nmp
+* Node.js (6.9.x or higher)
+* nmp (3.x.x or higher)
