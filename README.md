@@ -7,6 +7,8 @@ The following steps are required to get the project up and running.
 ## Web app
 Navigate to the `KetchupDashboard/` folder in terminal. Run `npm install` to install the required dependencies, this action is only required once. Run `npm start` or `ng serve` to start the web application. The page is available at: `http://localhost:4200`. Use `ctrl+c` to stop the application.
 
+To access the running instance on another device, during development, provide the option `--host 0.0.0.0` and access by ip and port. To access the running instance via a proxy also provide the option `--disable-host-check true`. The port can be changed with the `--port` option.
+
 Further details on [Angular CLI](/GETTING_STARTED.md).
 
 ## Web service API
