@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 
 import { AuthenticatedUser } from './login.component';
 import { Session } from './session';
+import { SessionRange } from './session-range';
 
 @Injectable()
 export class SessionService {
@@ -14,5 +15,11 @@ export class SessionService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         return this.http.post('http://localhost:8080/session/getLatest', authenticatedUser).map((response: Response) => response.json());
+    }
+
+    getDurationInRange(sessionRange: SessionRange) {
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost:8080/session/getRange', sessionRange).map((response: Response) => response.json());
     }
 }
