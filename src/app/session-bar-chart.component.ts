@@ -37,16 +37,15 @@ export class SessionBarChartComponent {
   this.barChartData = clone;
  }
 
- public updateRange(values: TimedSessionStatistics) {
-  let data = [values[0].totalDuration, values[1].totalDuration, 20, 240, 360, 80, 40];
+ public updateRange(values: TimedSessionStatistics[]) {
+  let data = [];
+  this.barChartLabels.length = 0;
+  for (let i = 0; i < values.length; i++) {
+    data[i] = values[i].totalDuration;
+    this.barChartLabels.push(values[i].date);
+  }
   let clone = JSON.parse(JSON.stringify(this.barChartData));
   clone[0].data = data;
   this.barChartData = clone;
-
-  let labelsData = [values[0].date, values[1].date];
-  this.barChartLabels.length = 0;
-  for (let i = 0; i < labelsData.length; i++) {
-    this.barChartLabels.push(labelsData[i]);
-  }
  }
 }

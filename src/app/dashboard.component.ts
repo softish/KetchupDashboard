@@ -19,10 +19,8 @@ export class DashboardComponent {
       username: 'foo'
     };
 
-    // sessionRange = new SessionRange(this.authenticatedUser.id, new Date('2017-10-26'));
     sessionRange: SessionRange = {
       userId: this.authenticatedUser.id,
-      //endOfRange: new Date('2017-10-26 00:00:00+02')
       endOfRangeDate: '2017-10-26 00:00:00+02'
     };
 
@@ -31,7 +29,7 @@ export class DashboardComponent {
     constructor(
       private sessionService: SessionService,
       ) {
-console.log(this.sessionRange);
+        console.log(this.sessionRange);
         this.getRangeOfSessions();
       }
 
