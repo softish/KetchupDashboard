@@ -1,3 +1,13 @@
 <h3>{{authenticatedUser.username}} activity</h3>
 
 <session-bar-chart></session-bar-chart>
+
+<form (ngSubmit)="onSubmit()" #rangeForm="ngForm">
+    <div class="form-group">
+        <label for="range">Activity range</label>
+        <select class="form-control" id="range" required [(ngModel)]="selectedRange" name="range">
+            <option *ngFor="let r of ranges" [value]="r">{{r}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Set</button>
+</form>

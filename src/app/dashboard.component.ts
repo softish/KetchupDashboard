@@ -14,6 +14,9 @@ import { SessionRange } from './session-range';
 })
 
 export class DashboardComponent {
+    ranges = ['3 days', '7 days', '30 days'];
+    selectedRange: string = this.ranges[1];
+
     authenticatedUser: AuthenticatedUser = {
       id: 1,
       username: 'foo'
@@ -21,7 +24,7 @@ export class DashboardComponent {
 
     sessionRange: SessionRange = {
       userId: this.authenticatedUser.id,
-      endOfRangeDate: '2017-10-26 00:00:00+02'
+      endOfRangeDate: this.getDate(this.selectedRange)
     };
 
     @ViewChild(SessionBarChartComponent) sessionBarChartComponent: SessionBarChartComponent;
@@ -45,5 +48,31 @@ export class DashboardComponent {
         console.log(sessionStatistics);
         this.sessionBarChartComponent.updateRange(sessionStatistics);
       });
+    }
+
+    onSubmit() {
+      this.sessionRange.endOfRangeDate = this.getDate(this.selectedRange);
+      this.getRangeOfSessions();
+    }
+
+    getDate(selectedRange: string): string {
+      const dayOffset = (24 * 60 * 60 * 1000);
+      let t: Date;
+
+      if (selectedRange === this.ranges[0]) {
+        t = new Date(Date.now() - dayOffset * (3 - 1));
+      }
+
+      if (selectedRange === this.ranges[1]) {
+        t = new Date(Date.now() - dayOffset * (7 - 1));
+      }
+
+      if (selectedRange === this.ranges[2]) {
+        t = new Date(Date.now() - dayOffset * (30 - 1));
+      }
+
+      t.setHours(t.getHours() + 1);
+
+      return t.toISOString().replace('T', ' ').replace(/.(\d+)Z/, '') + '+02';
     }
 }
