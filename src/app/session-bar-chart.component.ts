@@ -10,6 +10,20 @@ export class SessionBarChartComponent {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
+    animation: false,
+    scales: {
+      xAxes: [{
+        stacked: true
+      }],
+      yAxes: [{
+          display: true,
+          ticks: {
+              suggestedMax: 10,
+              suggestedMin: 0,
+              beginAtZero: true,
+          }
+      }]
+  }
   };
   public barChartLabels: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   public barChartType = 'bar';
