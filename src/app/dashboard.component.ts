@@ -50,7 +50,7 @@ export class DashboardComponent {
       });
     }
 
-    onSubmit() {
+    onSelect(): void {
       this.sessionRange.endOfRangeDate = this.getDate(this.selectedRange);
       this.getRangeOfSessions();
     }
