@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
 import { SessionBarChartComponent } from './session-bar-chart.component';
+import { StackedSessionsComponent } from './stacked-sessions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SessionBarChartComponent
+    SessionBarChartComponent,
+    StackedSessionsComponent
   ],
   imports: [
     BrowserModule,
