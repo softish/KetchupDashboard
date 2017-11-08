@@ -22,4 +22,10 @@ export class SessionService {
         const options = new RequestOptions({ headers: headers });
         return this.http.post('http://localhost:8080/session/getRange', sessionRange).map((response: Response) => response.json());
     }
+
+    getDetailedDurationInRange(sessionRange: SessionRange) {
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost:8080/session/getDetailedRange', sessionRange).map((response: Response) => response.json());
+    }
 }

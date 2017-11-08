@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
 import { SessionBarChartComponent } from './session-bar-chart.component';
+import { SessionBreakdownComponent } from './session-breakdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SessionBarChartComponent
+    SessionBarChartComponent,
+    SessionBreakdownComponent
   ],
   imports: [
     BrowserModule,
