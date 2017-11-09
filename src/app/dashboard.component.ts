@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
 import { User } from './login.component';
 import { Session } from './session';
@@ -13,7 +13,7 @@ import { SessionRange } from './session-range';
   providers: [SessionService]
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements AfterViewInit {
     ranges = ['3 days', '7 days', '30 days'];
     selectedRange: string = this.ranges[1];
 
@@ -29,12 +29,13 @@ export class DashboardComponent {
 
     @ViewChild(SessionBarChartComponent) sessionBarChartComponent: SessionBarChartComponent;
 
-    constructor(
-      private sessionService: SessionService,
-      ) {
+    constructor(private sessionService: SessionService) {
         console.log(this.sessionRange);
-        this.getRangeOfSessions();
-      }
+    }
+
+    ngAfterViewInit() {
+      this.getRangeOfSessions();
+    }
 
     getLatestSession() {
       this.sessionService.getLatest(this.authenticatedUser).subscribe(session => {

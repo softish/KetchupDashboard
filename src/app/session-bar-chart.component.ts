@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
 import { TimedSessionStatistics } from './timed-session-statistics';
+import { SessionBreakdownComponent } from './session-breakdown.component';
+import { SessionRange } from './session-range';
+
+import { SessionService } from './session.service';
 
 @Component({
   selector: 'app-session-bar-chart',
-  templateUrl: './session-bar-chart.html'
+  templateUrl: './session-bar-chart.html',
+  providers: [SessionService]
 })
-export class SessionBarChartComponent {
+export class SessionBarChartComponent implements AfterViewInit {
+
+  @ViewChild(SessionBreakdownComponent) sessionBreakdownComponent: SessionBreakdownComponent;
+
+  constructor(private sessionService: SessionService) {
+  }
+
+  sessionRange: SessionRange = {
+    userId: 1,
+    endOfRangeDate: '2017-10-26 01:23:30+02'
+  };
+
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -41,7 +57,23 @@ export class SessionBarChartComponent {
   ];
 
   public chartClicked(e: any): void {
-    console.log(e);
+    if (e.active.length > 0) {
+      console.log(e.active[0]._view.label);
+      const date = e.active[0]._view.label;
+      this.sessionRange.endOfRangeDate = date + ' 12:00:00+02';
+      this.getDetailsForDate(this.sessionRange);
+    }
+  }
+
+  getDetailsForDate(sessionRange: SessionRange) {
+    this.sessionService.getBreakdownForDate(sessionRange).subscribe(sessionStatistics => {
+      console.log(sessionStatistics);
+      this.sessionBreakdownComponent.update(sessionStatistics);
+    });
+  }
+
+  ngAfterViewInit() {
+    console.log(this.sessionBreakdownComponent);
   }
 
   public updateFirst(value: number) {

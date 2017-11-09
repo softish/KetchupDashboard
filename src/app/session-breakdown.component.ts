@@ -21,6 +21,18 @@ export class SessionBreakdownComponent {
         { data: [120, 60, 20] },
     ];
 
+    public update(values: DetailedSession[]) {
+        this.chartLabels.length = 0;
+        this.chartData.length = 0;
+        for (let i = 0; i < values.length; i++) {
+            this.chartLabels.push(values[i].task);
+            this.chartData.push(values[i].totalDuration);
+        }
+
+        const clone = JSON.parse(JSON.stringify(this.chartData));
+        this.chartData = clone;
+    }
+
     public chartClicked(e: any): void {
         console.log(e);
     }
