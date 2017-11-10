@@ -10,7 +10,7 @@ export class AuthenticationService {
     user: User = {
         username: '',
         password: ''
-      };
+    };
 
     constructor(private http: Http) {
     }

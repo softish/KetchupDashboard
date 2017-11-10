@@ -32,15 +32,16 @@ export class SessionBarChartComponent implements AfterViewInit {
         stacked: true
       }],
       yAxes: [{
-          display: true,
-          ticks: {
-              suggestedMax: 10,
-              suggestedMin: 0,
-              beginAtZero: true,
-          }
+        display: true,
+        ticks: {
+          suggestedMax: 10,
+          suggestedMin: 0,
+          beginAtZero: true,
+        }
       }]
-  }
+    }
   };
+
   public barChartLabels: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   public barChartType = 'bar';
   public barChartLegend = true;

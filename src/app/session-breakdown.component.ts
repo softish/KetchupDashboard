@@ -6,7 +6,6 @@ import { DetailedSession } from './detailed-session';
     selector: 'app-session-breakdown',
     templateUrl: './session-breakdown.html'
 })
-
 export class SessionBreakdownComponent {
     public chartOptions: any = {
         responsive: true,

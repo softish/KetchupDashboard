@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { AuthenticatedUser } from './login.component';
@@ -33,6 +33,6 @@ export class SessionService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         return this.http.post('http://localhost:8080/session/getDetailedForDate', sessionRange)
-        .map((response: Response) => response.json());
+            .map((response: Response) => response.json());
     }
 }

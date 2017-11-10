@@ -17,9 +17,9 @@ export class LoginComponent {
   };
   authUser: AuthenticatedUser;
 
-  constructor(
-        private authenticationService: AuthenticationService,
-        ) { }
+  constructor(private authenticationService: AuthenticationService) {
+    
+  }
 
   onSubmit() {
     console.log('onSubmint ...');
