@@ -13,6 +13,8 @@ import { SessionService } from './session.service';
 })
 export class SessionBarChartComponent implements AfterViewInit {
 
+  breakdownActivated = false;
+
   @ViewChild(SessionBreakdownComponent) sessionBreakdownComponent: SessionBreakdownComponent;
 
   constructor(private sessionService: SessionService) {
@@ -63,6 +65,7 @@ export class SessionBarChartComponent implements AfterViewInit {
       const date = e.active[0]._view.label;
       this.sessionRange.endOfRangeDate = date + ' 12:00:00+02';
       this.getDetailsForDate(this.sessionRange);
+      this.breakdownActivated = true;
     }
   }
 
