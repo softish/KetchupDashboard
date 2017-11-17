@@ -11,6 +11,7 @@ import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
 import { SessionBarChartComponent } from './session-bar-chart.component';
 import { SessionBreakdownComponent } from './session-breakdown.component';
+import { LandingComponent } from './landing.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,17 @@ import { SessionBreakdownComponent } from './session-breakdown.component';
     LoginComponent,
     DashboardComponent,
     SessionBarChartComponent,
-    SessionBreakdownComponent
+    SessionBreakdownComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+      {
+        path: 'landing',
+        component: LandingComponent
+      },
       {
         path: 'login',
         component: LoginComponent
@@ -34,7 +40,7 @@ import { SessionBreakdownComponent } from './session-breakdown.component';
       },
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/landing',
         pathMatch: 'full'
       },
     ]),
