@@ -18,6 +18,7 @@ export class AuthenticationService {
     authenticate(user: User) {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost:8080/user/authenticate', user).map((response: Response) => response.json());
+        return this.http.post('http://localhost:8080/user/authenticate', user)
+        .map((response: Response) => response.json());
     }
 }

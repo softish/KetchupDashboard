@@ -31,6 +31,9 @@ export class DashboardComponent implements AfterViewInit {
 
   constructor(private sessionService: SessionService) {
     console.log(this.sessionRange);
+    if(localStorage.getItem('currentUser') !== null) {
+      this.authenticatedUser.username = JSON.parse(localStorage.getItem('currentUser')).username;
+    }
   }
 
   ngAfterViewInit() {
