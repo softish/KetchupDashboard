@@ -30,7 +30,7 @@ export class LoginComponent {
   authenticate(user: User): void {
     this.authenticationService.authenticate(user).subscribe(authUser => {
       this.authUser = authUser;
-      localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('currentUser', JSON.stringify(authUser));
       console.log(authUser);
     });
   }
