@@ -11,14 +11,17 @@ export class AuthenticationService {
         username: '',
         password: ''
     };
-    
+
+    readonly devBaseURL: string = 'http://localhost:8080';
+    readonly prodBaseURL: string = 'http://zapto.ketchup.org:5757';
+
     private authenticateEndpoint: string;
 
     constructor(private http: Http) {
-        if(isDevMode()) {
-            this.authenticateEndpoint = 'http://localhost:8080/user/authenticate';
+        if (isDevMode()) {
+            this.authenticateEndpoint = this.devBaseURL + '/user/authenticate';
         } else {
-            this.authenticateEndpoint = 'http://zapto.ketchup.org:5757/user/authenticate';
+            this.authenticateEndpoint = this.prodBaseURL + '/user/authenticate';
         }
     }
 

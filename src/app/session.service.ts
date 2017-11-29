@@ -9,22 +9,25 @@ import { SessionRange } from './session-range';
 @Injectable()
 export class SessionService {
 
+    readonly devBaseURL: string = 'http://localhost:8080';
+    readonly prodBaseURL: string = 'http://zapto.ketchup.org:5757';
+
     private getLatestEndpoint: string;
     private getRangeEndpoint: string;
     private getDetailedRangeEndpoint: string;
     private getDetailedForDateEndpoint: string;
 
     constructor(private http: Http) {
-        if(isDevMode()) {
-            this.getLatestEndpoint = 'http://localhost:8080/session/getLatest';
-            this.getRangeEndpoint = 'http://localhost:8080/session/getRange';
-            this.getDetailedRangeEndpoint = 'http://localhost:8080/session/getDetailedRange';
-            this.getDetailedForDateEndpoint = 'http://localhost:8080/session/getDetailedForDate';
+        if (isDevMode()) {
+            this.getLatestEndpoint = this.devBaseURL + '/session/getLatest';
+            this.getRangeEndpoint = this.devBaseURL + '/session/getRange';
+            this.getDetailedRangeEndpoint = this.devBaseURL + '/session/getDetailedRange';
+            this.getDetailedForDateEndpoint = this.devBaseURL + '/session/getDetailedForDate';
         } else {
-            this.getLatestEndpoint = 'http://zapto.ketchup.org:5757/session/getLatest';
-            this.getRangeEndpoint = 'http://zapto.ketchup.org:5757/getRange';
-            this.getDetailedRangeEndpoint = 'http://zapto.ketchup.org:5757/session/getDetailedRange';
-            this.getDetailedForDateEndpoint = 'http://zapto.ketchup.org:5757/session/getDetailedForDate';
+            this.getLatestEndpoint = this.prodBaseURL + '/session/getLatest';
+            this.getRangeEndpoint = this.prodBaseURL + '/getRange';
+            this.getDetailedRangeEndpoint = this.prodBaseURL + '/session/getDetailedRange';
+            this.getDetailedForDateEndpoint = this.prodBaseURL + '/session/getDetailedForDate';
         }
     }
 
