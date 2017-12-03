@@ -10,7 +10,7 @@ import { SessionRange } from './session-range';
 export class SessionService {
 
     readonly devBaseURL: string = 'http://localhost:8080';
-    readonly prodBaseURL: string = 'http://zapto.ketchup.org:5757';
+    readonly prodBaseURL: string = 'http://ketchup.zapto.org:5757';
 
     private getLatestEndpoint: string;
     private getRangeEndpoint: string;

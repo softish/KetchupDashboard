@@ -13,7 +13,7 @@ export class AuthenticationService {
     };
 
     readonly devBaseURL: string = 'http://localhost:8080';
-    readonly prodBaseURL: string = 'http://zapto.ketchup.org:5757';
+    readonly prodBaseURL: string = 'http://ketchup.zapto.org:5757';
 
     private authenticateEndpoint: string;
 
