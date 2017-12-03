@@ -69,6 +69,9 @@ export class SessionBarChartComponent implements AfterViewInit {
     }
   }
 
+  public chartHovered(e: any): void {
+  }
+
   getDetailsForDate(sessionRange: SessionRange) {
     this.sessionService.getBreakdownForDate(sessionRange).subscribe(sessionStatistics => {
       console.log(sessionStatistics);

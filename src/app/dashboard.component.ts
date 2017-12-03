@@ -59,6 +59,9 @@ export class DashboardComponent implements AfterViewInit {
     this.getRangeOfSessions();
   }
 
+  onSubmit() {
+  }
+
   getDate(selectedRange: string): string {
     const dayOffset = (24 * 60 * 60 * 1000);
     let t: Date;

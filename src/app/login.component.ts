@@ -18,11 +18,9 @@ export class LoginComponent {
   authUser: AuthenticatedUser;
 
   constructor(private authenticationService: AuthenticationService) {
-    
   }
 
   onSubmit() {
-    console.log('onSubmint ...');
     this.submitted = true;
     this.authenticate(this.user);
   }
